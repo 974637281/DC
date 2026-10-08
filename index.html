@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dental Clinic — стоматология в Булаево</title>
+<meta name="description" content="Dental Clinic: стоматология в Булаево, ул. Целинная 16. Лечение зубов, удаление, чистка, детский приём.">
+<script>document.documentElement.className+=" js"</script>
+<style>
+:root{--bg:#000;--card:#151515;--line:#2a1f16;--accent:#D95F0E;--cream:#F5E9D3;--muted:#c2b49a;--ink:#190b02;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{font-size:15px;scroll-behavior:smooth;scroll-padding-top:5rem}
+html.big{font-size:17px}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6;padding-bottom:5.5rem}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid #F0802F;outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 max(1.25rem,env(safe-area-inset-left))}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.65rem;line-height:1.2;margin:0}
+.lead{color:var(--muted);margin:.55rem 0 0;max-width:30rem}
+main{transition:opacity .14s}
+main.swap{opacity:0}
+
+/* иконки и кнопки */
+.btn svg,.arrow svg{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn{display:inline-flex;gap:.55rem;align-items:center;justify-content:center;height:2.9rem;padding:0 1.5rem;font:inherit;font-weight:700;color:var(--ink);background:linear-gradient(180deg,#E06A12,#BF5009);border:0;border-radius:999px;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 6px 16px rgba(191,80,9,.28);text-decoration:none;cursor:pointer;transition:transform .18s var(--ease),filter .18s,background .2s,box-shadow .2s,border-color .2s}
+.btn:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 10px 22px rgba(191,80,9,.4)}
+.btn:active{transform:scale(.96);filter:brightness(.92);transition-duration:.06s}
+.btn.alt{background:transparent;color:var(--cream);border:1px solid #7a3a12;box-shadow:none}
+.btn.alt:hover{background:rgba(217,95,14,.16);border-color:var(--accent);filter:none;box-shadow:none}
+
+/* шапка */
+header{position:sticky;top:0;z-index:20;background:rgba(10,10,10,.9);backdrop-filter:blur(10px);border-bottom:1px solid #3a210f;box-shadow:0 10px 28px rgba(0,0,0,.6);transition:background .3s,box-shadow .3s}
+header.scrolled{background:rgba(6,6,6,.97);box-shadow:0 12px 32px rgba(0,0,0,.85)}
+header::before{content:"";display:block;height:3px;background:linear-gradient(90deg,#8f3d06,var(--accent),#8f3d06)}
+.bar{display:flex;align-items:center;gap:.9rem;min-height:3.8rem;flex-wrap:wrap;padding-block:.55rem;transition:min-height .3s}
+header.scrolled .bar{min-height:3.2rem;padding-block:.35rem}
+.logo{display:flex;align-items:center;gap:.6rem;font-family:Georgia,serif;font-weight:700;font-size:1.2rem;color:var(--cream);text-decoration:none;margin-right:auto}
+.logo b{color:var(--accent)}
+.mark{width:2.2rem;height:2.2rem;border-radius:10px;background:linear-gradient(180deg,#E06A12,#BF5009);display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease)}
+.logo:hover .mark{transform:rotate(-8deg) scale(1.06)}
+.mark svg{width:1.3rem;height:1.3rem;fill:var(--ink)}
+nav{display:flex;gap:.1rem}
+nav a{color:var(--muted);text-decoration:none;font-size:.86rem;padding:.45rem .65rem;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+nav a:hover{background:rgba(217,95,14,.18);color:var(--cream)}
+nav a.active{background:rgba(217,95,14,.26);color:var(--cream)}
+.tools{display:flex;gap:.5rem;align-items:center}
+.tools button{height:2.3rem;min-width:2.3rem;padding:0 .75rem;font:inherit;font-size:.82rem;font-weight:700;background:transparent;color:var(--muted);border:1px solid #3a2a1c;border-radius:999px;cursor:pointer;transition:background .2s,color .2s,transform .1s}
+.tools button:hover{background:rgba(217,95,14,.14)}
+.tools button:active{transform:scale(.93)}
+.seg{display:flex;border:1px solid #3a2a1c;border-radius:999px;padding:2px}
+.seg button{border:0;height:2rem}
+.tools button[aria-pressed=true]{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+@media(max-width:800px){nav{order:3;width:100%;flex-wrap:wrap;margin-left:-.65rem}}
+
+/* панели */
+section{padding:.5rem 0}
+main>section:first-child{padding-top:1.25rem}
+.panel{background:#0c0c0c;border:1px solid #3a2616;border-radius:22px;padding:1.9rem}
+@media(max-width:520px){.panel{padding:1.3rem;border-radius:18px}h2{font-size:1.4rem}}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:1.25rem;flex-wrap:wrap;margin-bottom:1.4rem}
+.head .lead{margin-top:.4rem;max-width:22rem}
+.split{display:grid;grid-template-columns:1fr 1.7fr;gap:2.2rem;align-items:start}
+@media(max-width:700px){.split{grid-template-columns:1fr;gap:1.3rem}}
+.center{text-align:center}.center .lead{margin-inline:auto}
+
+/* появление при прокрутке */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+.js .stg{opacity:0;transform:translateY(14px);transition:opacity .55s var(--ease) calc(var(--n,0)*80ms),transform .55s var(--ease) calc(var(--n,0)*80ms),border-color .25s,background .25s}
+.js .rv.in .stg{opacity:1;transform:none}
+
+/* первый экран */
+.hero{position:relative;overflow:hidden;display:grid;grid-template-columns:1.4fr 1fr;gap:1rem;align-items:center;padding:3rem 2.2rem;background:radial-gradient(circle at 88% 15%,rgba(217,95,14,.32),transparent 55%),linear-gradient(160deg,#17100a,#0a0a0a 60%);border-color:#5a3015}
+.hero h1{font-size:clamp(1.9rem,5.4vw,3rem);line-height:1.12;margin:0 0 1rem;max-width:15ch}
+.hero p{margin:0 0 1.5rem;color:var(--muted);max-width:28rem;font-size:1.05rem}
+.hero h1,.hero p,.chips{animation:rise .8s var(--ease) both}
+.hero p{animation-delay:.12s}.chips{animation-delay:.24s}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0;padding:0;list-style:none}
+.chips li{background:rgba(255,255,255,.04);border:1px solid #4a2d17;border-radius:999px;padding:.4rem .9rem;font-size:.88rem}
+.chips li.open::before,.chips li.closed::before{content:"";display:inline-block;width:.55rem;height:.55rem;border-radius:50%;margin-right:.5rem;background:#4ade80}
+.chips li.open::before{animation:pulse 2.2s ease-out infinite}
+.chips li.closed::before{background:#8a8a8a}
+.deco{display:flex;justify-content:center;animation:fade 1.2s .3s both}
+.deco svg{width:min(15rem,100%);fill:none;stroke:var(--accent);stroke-width:.5;opacity:.75;animation:float 7s ease-in-out infinite}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes float{50%{transform:translateY(-10px) rotate(2deg)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.55)}80%,100%{box-shadow:0 0 0 .5rem rgba(74,222,128,0)}}
+@media(max-width:700px){.hero{grid-template-columns:1fr;padding:2rem 1.3rem}.deco{display:none}}
+
+/* прайс */
+.prices{list-style:none;margin:0;padding:0;display:grid}
+.prices li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.8rem .6rem;margin-inline:-.6rem;border-bottom:1px dashed #3d2a1b;border-radius:10px}
+.prices li:last-child{border-bottom:0}
+.prices span:last-child{color:var(--accent);font-weight:700;white-space:nowrap;font-size:1.05rem}
+@media(hover:hover){.prices li:hover{background:rgba(217,95,14,.1)}}
+
+/* врачи */
+.doctors{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));margin-top:1.6rem;text-align:center}
+.dr{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.4rem 1rem}
+.ava{width:5.5rem;height:5.5rem;margin:0 auto .9rem;border-radius:50%;border:2px dashed #7a3a12;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem;overflow:hidden}
+.ava img{width:100%;height:100%;object-fit:cover}
+.dr b{display:block;font-family:Georgia,serif;font-size:1.05rem}
+.dr span{display:block;color:var(--muted);font-size:.9rem}
+.dr small{display:inline-block;margin-top:.55rem;padding:.15rem .7rem;border-radius:999px;background:rgba(217,95,14,.16);color:#F0944A;font-weight:600;font-size:.8rem}
+@media(hover:hover){.dr:hover,.rev:hover{border-color:#7a3a12;background:#1b1510}}
+@media(max-width:600px){.doctors{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:.8rem;margin-inline:-1.3rem;padding:0 1.3rem .3rem;scroll-padding:0 1.3rem;scrollbar-width:none}.doctors::-webkit-scrollbar{display:none}.dr{flex:0 0 74%;scroll-snap-align:start}}
+
+/* документы */
+.docs{display:grid;gap:.9rem;grid-template-columns:repeat(3,1fr)}
+.doc{aspect-ratio:1/1;background:var(--card);border:2px dashed #7a3a12;border-radius:14px;display:flex;align-items:center;justify-content:center;text-align:center;padding:.8rem;color:var(--muted);font-size:.85rem;overflow:hidden}
+.doc img{width:100%;height:100%;object-fit:cover;border-radius:10px;cursor:zoom-in;transition:transform .4s var(--ease)}
+.doc img:hover{transform:scale(1.04)}
+.note{margin:.9rem 0 0;color:var(--muted);font-size:.85rem}
+@media(max-width:480px){.docs{gap:.6rem}.doc{font-size:.72rem;padding:.4rem}}
+#lb{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;cursor:zoom-out}
+#lb.on{opacity:1;visibility:visible}
+#lb img{max-width:100%;max-height:100%;border-radius:12px;transform:scale(.94);transition:transform .3s var(--ease)}
+#lb.on img{transform:none}
+
+/* отзывы: карусель */
+.rv-panel{background:linear-gradient(180deg,#160d06,#0c0c0c);border-color:#5a3015}
+.ctl{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.arrow{width:2.6rem;height:2.6rem;border-radius:50%;border:1px solid #7a3a12;background:transparent;color:var(--cream);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,opacity .2s,transform .1s}
+.arrow:hover{background:rgba(217,95,14,.2)}.arrow:active{transform:scale(.9)}
+.arrow:disabled{opacity:.3;cursor:default}
+.arrow[hidden]{display:none}
+.reviews{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;margin-inline:-.3rem;padding:.3rem}
+.reviews::-webkit-scrollbar{display:none}
+.rev{position:relative;flex:0 0 calc((100% - 2rem)/3);scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.3rem 1.2rem 1.1rem}
+.rev::before{content:"“";position:absolute;right:1rem;top:.1rem;font:700 3.6rem/1 Georgia,serif;color:rgba(217,95,14,.35)}
+.stars{color:var(--accent);letter-spacing:.12em}
+.rev p{margin:.5rem 0;font-size:.95rem}
+.rev small{color:var(--muted)}
+@media(max-width:700px){.rev{flex-basis:84%}}
+
+/* справочник: плавное раскрытие */
+.faq{display:grid;gap:.6rem}
+.qa{background:var(--card);border:1px solid var(--line);border-radius:14px;transition:border-color .25s,background .25s}
+.qa.open{border-color:#7a3a12;background:#1a130d}
+.q{width:100%;text-align:left;font:inherit;font-weight:600;color:var(--cream);background:none;border:0;padding:.95rem 1.1rem;min-height:3rem;display:flex;justify-content:space-between;align-items:center;gap:.8rem;cursor:pointer}
+.q i{flex:none;position:relative;width:1rem;height:1rem;transition:transform .35s var(--ease)}
+.q i::before,.q i::after{content:"";position:absolute;left:0;top:calc(50% - 1px);width:100%;height:2px;background:var(--accent);border-radius:2px}
+.q i::after{transform:rotate(90deg);transition:transform .35s var(--ease)}
+.qa.open .q i{transform:rotate(180deg)}
+.qa.open .q i::after{transform:rotate(0)}
+.a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.qa.open .a{grid-template-rows:1fr}
+.a>div{overflow:hidden;visibility:hidden;transition:visibility .4s}
+.qa.open .a>div{visibility:visible}
+.a p{margin:0;padding:0 1.1rem 1.1rem;color:var(--muted);font-size:.95rem}
+
+/* контакты */
+.hot{background:radial-gradient(circle at 100% 0%,rgba(217,95,14,.24),transparent 55%),linear-gradient(160deg,#261407,#0c0c0c 72%);border-color:#7a3a12}
+.contacts{display:grid;gap:1rem;grid-template-columns:1.1fr 1fr;margin-top:1.5rem}
+.card{background:rgba(8,8,8,.85);border:1px solid #3a2616;border-radius:18px;padding:1.3rem}
+.card dl{margin:0}.card dt{color:#F0944A;font-weight:700;font-size:.82rem}.card dd{margin:0 0 .9rem}.card dd:last-child{margin:0}
+.card dd a{color:var(--cream);font-weight:700;font-size:1.25rem;text-decoration:none}
+.map{display:flex;flex-direction:column;gap:.7rem;justify-content:center}
+.map .btn{width:100%}
+@media(max-width:700px){.contacts{grid-template-columns:1fr}}
+
+/* подвал */
+footer{margin-top:1.5rem;border-top:1px solid #3a210f;background:#080808;padding:2rem 0 1rem;color:var(--muted);font-size:.88rem}
+.foot{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:1.5rem}
+.foot p{margin:.6rem 0 0}
+.fnav{display:grid;gap:.4rem;align-content:start}
+.fnav a{color:var(--muted);text-decoration:none;transition:color .2s}.fnav a:hover{color:var(--cream)}
+.fphone{color:var(--cream);font-weight:700;font-size:1.1rem;text-decoration:none}
+.copy{margin-top:1.5rem;padding-top:1rem;border-top:1px solid #1f1710;font-size:.8rem}
+@media(max-width:700px){.foot{grid-template-columns:1fr}}
+
+/* плавающая кнопка */
+#fabBtn{position:fixed;right:max(1.25rem,env(safe-area-inset-right));bottom:1.25rem;z-index:30;height:3.2rem;padding:0 1.6rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 8px 24px rgba(191,80,9,.5);animation:pop .6s 1.2s var(--ease) backwards}
+#fabBtn.gone{opacity:0;transform:translateY(1rem);pointer-events:none}
+@keyframes pop{from{opacity:0;transform:translateY(1.5rem) scale(.9)}}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .rv,.js .stg{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-tooth" viewBox="0 0 24 24"><path d="M7.5 3.5C5.2 3.5 3.5 5.3 3.5 7.9c0 2.2 1 3.6 1.5 5.8.6 2.7.8 7.3 2.7 7.3 1.8 0 1.4-4.8 4.3-4.8s2.5 4.8 4.3 4.8c1.9 0 2.1-4.6 2.7-7.3.5-2.2 1.5-3.6 1.5-5.8 0-2.6-1.7-4.4-4-4.4-1.7 0-2.6.9-4.5.9S9.2 3.5 7.5 3.5z"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top"><span class="mark"><svg aria-hidden="true"><use href="#i-tooth"/></svg></span><span>Dental <b>Clinic</b></span></a>
+    <nav>
+      <a href="#prices" data-i="n_prices"></a>
+      <a href="#doctors" data-i="n_doctors"></a>
+      <a href="#docs" data-i="n_docs"></a>
+      <a href="#reviews" data-i="n_reviews"></a>
+      <a href="#faq" data-i="n_faq"></a>
+      <a href="#contacts" data-i="n_contacts"></a>
+    </nav>
+    <div class="tools">
+      <button id="size" aria-pressed="false" aria-label="Крупный шрифт">A+</button>
+      <div class="seg" role="group">
+        <button data-lang="ru" aria-pressed="true">РУС</button>
+        <button data-lang="kk" aria-pressed="false">ҚАЗ</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section><div class="wrap"><div class="panel hero">
+    <div>
+      <h1 data-i="h1"></h1>
+      <p data-i="lead"></p>
+      <ul class="chips">
+        <li id="status"></li>
+        <li data-i="f2"></li>
+      </ul>
+    </div>
+    <div class="deco" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-tooth"/></svg></div>
+  </div></div></section>
+
+  <section id="prices"><div class="wrap"><div class="panel split rv">
+    <div>
+      <h2 data-i="n_prices"></h2>
+      <p class="lead" data-i="pr_lead"></p>
+    </div>
+    <!-- ЗАМЕНИТЬ: цены "0" на реальные -->
+    <ul class="prices" data-stagger>
+      <li><span data-i="s1"></span><span>0 ₸</span></li>
+      <li><span data-i="s2"></span><span>0 ₸</span></li>
+      <li><span data-i="s3"></span><span>0 ₸</span></li>
+      <li><span data-i="s4"></span><span>0 ₸</span></li>
+      <li><span data-i="s5"></span><span>0 ₸</span></li>
+      <li><span data-i="s6"></span><span>0 ₸</span></li>
+      <li><span data-i="s7"></span><span>0 ₸</span></li>
+    </ul>
+  </div></div></section>
+
+  <section id="doctors"><div class="wrap"><div class="panel center rv">
+    <h2 data-i="n_doctors"></h2>
+    <p class="lead" data-i="dr_lead"></p>
+    <!-- ЗАМЕНИТЬ: ФИО, специальность, стаж; в .ava вставить <img src="doc1.jpg" alt="ФИО"> -->
+    <div class="doctors" data-stagger>
+      <div class="dr"><div class="ava" data-i="photo"></div><b data-i="dn"></b><span data-i="dr1"></span><small data-i="dexp"></small></div>
+      <div class="dr"><div class="ava" data-i="photo"></div><b data-i="dn"></b><span data-i="dr2"></span><small data-i="dexp"></small></div>
+      <div class="dr"><div class="ava" data-i="photo"></div><b data-i="dn"></b><span data-i="dr3"></span><small data-i="dexp"></small></div>
+    </div>
+  </div></div></section>
+
+  <section id="docs"><div class="wrap"><div class="panel rv">
+    <div class="head"><h2 data-i="n_docs"></h2><p class="lead" data-i="dc_lead"></p></div>
+    <!-- ЗАМЕНИТЬ: вместо текста вставить <img src="license.jpg" alt="Лицензия"> (по нажатию фото увеличится) -->
+    <div class="docs" data-stagger>
+      <div class="doc" data-i="d1"></div>
+      <div class="doc" data-i="d2"></div>
+      <div class="doc" data-i="d3"></div>
+    </div>
+    <p class="note" data-i="licnote"></p>
+  </div></div></section>
+
+  <section id="reviews"><div class="wrap"><div class="panel rv-panel rv">
+    <div class="head">
+      <div><h2 data-i="n_reviews"></h2><p class="lead" data-i="rv_lead"></p></div>
+      <div class="ctl">
+        <button class="arrow" id="prev" data-al="prev" aria-label="Назад"><svg aria-hidden="true"><use href="#i-left"/></svg></button>
+        <button class="arrow" id="next" data-al="next" aria-label="Вперёд"><svg aria-hidden="true"><use href="#i-right"/></svg></button>
+        <a class="btn alt" target="_blank" rel="noopener" data-gis><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-i="rvbtn"></span></a>
+      </div>
+    </div>
+    <!-- ЗАМЕНИТЬ: примеры на настоящие отзывы из 2ГИС (с согласия авторов). Можно добавить больше карточек: они листаются -->
+    <div class="reviews" id="revs">
+      <div class="rev"><div class="stars">★★★★★</div><p data-i="rv"></p><small data-i="rvn"></small></div>
+      <div class="rev"><div class="stars">★★★★★</div><p data-i="rv"></p><small data-i="rvn"></small></div>
+      <div class="rev"><div class="stars">★★★★★</div><p data-i="rv"></p><small data-i="rvn"></small></div>
+    </div>
+  </div></div></section>
+
+  <section id="faq"><div class="wrap"><div class="panel split rv">
+    <div>
+      <h2 data-i="n_faq"></h2>
+      <p class="lead" data-i="fq_lead"></p>
+    </div>
+    <!-- ЗАМЕНИТЬ: тексты примерные, согласовать с врачом -->
+    <div class="faq" data-stagger>
+      <div class="qa"><button class="q" aria-expanded="false"><span data-i="q1"></span><i></i></button><div class="a"><div><p data-i="a1"></p></div></div></div>
+      <div class="qa"><button class="q" aria-expanded="false"><span data-i="q2"></span><i></i></button><div class="a"><div><p data-i="a2"></p></div></div></div>
+      <div class="qa"><button class="q" aria-expanded="false"><span data-i="q3"></span><i></i></button><div class="a"><div><p data-i="a3"></p></div></div></div>
+      <div class="qa"><button class="q" aria-expanded="false"><span data-i="q4"></span><i></i></button><div class="a"><div><p data-i="a4"></p></div></div></div>
+    </div>
+  </div></div></section>
+
+  <section id="contacts"><div class="wrap"><div class="panel hot rv">
+    <h2 data-i="n_contacts"></h2>
+    <p class="lead" data-i="ct_lead"></p>
+    <div class="contacts">
+      <div class="card"><dl>
+        <dt data-i="c_addr"></dt><dd data-i="addr"></dd>
+        <dt data-i="c_hours"></dt><dd data-i="hours"></dd>
+        <dt data-i="c_phone"></dt><dd><a data-tel data-tel-text></a></dd>
+      </dl></div>
+      <div class="card map">
+        <a class="btn" data-tel><svg aria-hidden="true"><use href="#i-phone"/></svg><span data-i="call"></span></a>
+        <a class="btn alt" target="_blank" rel="noopener" data-wa><svg aria-hidden="true"><use href="#i-chat"/></svg><span data-i="wa"></span></a>
+        <a class="btn alt" target="_blank" rel="noopener" data-gis><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-i="map2"></span></a>
+        <a class="btn alt" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%D0%91%D1%83%D0%BB%D0%B0%D0%B5%D0%B2%D0%BE+%D0%A6%D0%B5%D0%BB%D0%B8%D0%BD%D0%BD%D0%B0%D1%8F+16"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-i="map"></span></a>
+      </div>
+    </div>
+  </div></div></section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><a class="logo" href="#top"><span class="mark"><svg aria-hidden="true"><use href="#i-tooth"/></svg></span><span>Dental <b>Clinic</b></span></a><p data-i="addr"></p></div>
+    <div class="fnav"><a href="#prices" data-i="n_prices"></a><a href="#doctors" data-i="n_doctors"></a><a href="#faq" data-i="n_faq"></a><a href="#contacts" data-i="n_contacts"></a></div>
+    <div><a data-tel data-tel-text class="fphone"></a><p data-i="hours"></p></div>
+  </div>
+  <div class="wrap copy">© 2026 Dental Clinic · <span data-i="lic"></span></div>
+</footer>
+
+<a class="btn" id="fabBtn" href="#contacts"><svg aria-hidden="true"><use href="#i-cal"/></svg><span data-i="book"></span></a>
+<div id="lb"><img alt=""></div>
+
+<script>
+/* ===== НАСТРОЙКИ КЛИНИКИ: заменить здесь, всё остальное подтянется само ===== */
+const CLINIC={
+  phone:"70000000000",            // для ссылок и WhatsApp, без плюса
+  phoneShow:"+7 000 000 00 00",   // как показывать на сайте
+  gis:"https://2gis.kz/",         // ссылка на карточку клиники в 2ГИС (отзывы и маршрут)
+  open:9, close:18, days:[1,2,3,4,5]  // часы работы для метки «Сейчас открыто»: с 9 до 18, Пн–Пт
+};
+/* ============================================================================ */
+const T={
+ru:{n_prices:"Услуги и цены",n_doctors:"Врачи",n_docs:"Документы",n_reviews:"Отзывы",n_faq:"Справочник",n_contacts:"Контакты",
+h1:"Лечим зубы бережно, для всей семьи",lead:"Стоматология в Булаево для взрослых и детей.",book:"Записаться",
+f2:"Запись по звонку или в WhatsApp",st_open:"Сейчас открыто, до {t}",st_closed:"Сейчас закрыто",
+pr_lead:"Точную цену врач назовёт после осмотра.",
+s1:"Консультация",s2:"Профессиональная чистка",s3:"Лечение кариеса",s4:"Пломба",s5:"Удаление зуба",s6:"Детский приём",s7:"Протезирование",
+dr_lead:"Врачи, которые будут вас лечить.",photo:"Фото",dn:"ФИО врача",dr1:"Стоматолог-терапевт",dr2:"Стоматолог-хирург",dr3:"Детский стоматолог",dexp:"Стаж: 0 лет",
+dc_lead:"Лицензия и дипломы.",d1:"Здесь будет фото лицензии",d2:"Здесь будет диплом врача",d3:"Здесь будет сертификат",licnote:"Лицензия № 0000, выдана … (заполнить)",
+rv_lead:"Отзывы наших пациентов в 2ГИС.",rv:"Здесь будет настоящий отзыв пациента.",rvn:"Пациент, 2ГИС",rvbtn:"Все отзывы в 2ГИС",prev:"Назад",next:"Вперёд",
+fq_lead:"Короткие ответы на частые вопросы.",
+q1:"Как подготовиться к приёму?",a1:"Почистите зубы, возьмите удостоверение личности. Расскажите врачу о лекарствах, которые принимаете, и о хронических болезнях.",
+q2:"Что делать после удаления зуба?",a2:"Первые два часа не ешьте и не пейте горячее. В первые сутки не полощите рот и не трогайте лунку языком. При сильной боли или кровотечении позвоните в клинику.",
+q3:"Как ухаживать за зубами?",a3:"Чистите зубы два раза в день по две минуты, пользуйтесь зубной нитью, меняйте щётку раз в три месяца.",
+q4:"Как часто ходить к стоматологу?",a4:"Приходите на осмотр раз в полгода, даже если ничего не болит.",
+ct_lead:"Позвоните или напишите, чтобы записаться.",c_addr:"Адрес",addr:"г. Булаево, ул. Целинная, 16",c_hours:"Часы работы",hours:"Пн–Пт 9:00–18:00 (уточнить)",c_phone:"Телефон",
+map:"Открыть в Google Картах",map2:"Открыть в 2ГИС",call:"Позвонить",wa:"Написать в WhatsApp",lic:"Лицензия № 0000",
+title:"Dental Clinic — стоматология в Булаево",desc:"Dental Clinic: стоматология в Булаево, ул. Целинная 16. Лечение зубов, удаление, чистка, детский приём."},
+kk:{n_prices:"Қызметтер мен бағалар",n_doctors:"Дәрігерлер",n_docs:"Құжаттар",n_reviews:"Пікірлер",n_faq:"Анықтама",n_contacts:"Байланыс",
+h1:"Бүкіл отбасыға тісті мұқият емдейміз",lead:"Булаевтегі ересектер мен балаларға арналған стоматология.",book:"Жазылу",
+f2:"Қоңырау шалып немесе WhatsApp арқылы жазылу",st_open:"Қазір ашық, {t}-ге дейін",st_closed:"Қазір жабық",
+pr_lead:"Нақты бағаны дәрігер тексеруден кейін айтады.",
+s1:"Кеңес беру",s2:"Кәсіби тазалау",s3:"Тіс жегісін емдеу",s4:"Пломба қою",s5:"Тісті жұлу",s6:"Балаларды қабылдау",s7:"Протездеу",
+dr_lead:"Сізді емдейтін дәрігерлер.",photo:"Сурет",dn:"Дәрігердің аты-жөні",dr1:"Стоматолог-терапевт",dr2:"Стоматолог-хирург",dr3:"Балалар стоматологы",dexp:"Тәжірибесі: 0 жыл",
+dc_lead:"Лицензия мен дипломдар.",d1:"Мұнда лицензия суреті болады",d2:"Мұнда дәрігер дипломы болады",d3:"Мұнда сертификат болады",licnote:"Лицензия № 0000, берген … (толтыру)",
+rv_lead:"Науқастардың 2ГИС-тегі пікірлері.",rv:"Мұнда науқастың нақты пікірі болады.",rvn:"Науқас, 2ГИС",rvbtn:"2ГИС-тегі барлық пікір",prev:"Артқа",next:"Алға",
+fq_lead:"Жиі қойылатын сұрақтарға қысқа жауаптар.",
+q1:"Қабылдауға қалай дайындалу керек?",a1:"Тісіңізді тазалап, жеке куәлігіңізді алыңыз. Дәрігерге қабылдайтын дәрілеріңіз бен созылмалы ауруларыңыз туралы айтыңыз.",
+q2:"Тісті жұлғаннан кейін не істеу керек?",a2:"Алғашқы екі сағатта тамақ ішпеңіз, ыстық ішімдік ішпеңіз. Алғашқы тәулікте ауызды шаймаңыз, тіліңізбен тісжұлынды ұстамаңыз. Қатты ауырса немесе қан кетсе, клиникаға қоңырау шалыңыз.",
+q3:"Тісті қалай күту керек?",a3:"Тісті күніне екі рет, екі минуттан тазалаңыз, тіс жібін қолданыңыз, щетканы үш айда бір ауыстырыңыз.",
+q4:"Стоматологқа қаншалықты жиі бару керек?",a4:"Ештеңе ауырмаса да, жарты жылда бір рет тексерілуге келіңіз.",
+ct_lead:"Жазылу үшін қоңырау шалыңыз немесе жазыңыз.",c_addr:"Мекенжай",addr:"Булаев қ., Целинная к-сі, 16",c_hours:"Жұмыс уақыты",hours:"Дс–Жм 9:00–18:00 (нақтылау)",c_phone:"Телефон",
+map:"Google Карталарында ашу",map2:"2ГИС-те ашу",call:"Қоңырау шалу",wa:"WhatsApp-қа жазу",lic:"Лицензия № 0000",
+title:"Dental Clinic — Булаевтегі стоматология",desc:"Dental Clinic: Булаевтегі стоматология, Целинная к-сі 16. Тісті емдеу, жұлу, тазалау, балаларды қабылдау."}
+};
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+let LANG="ru";
+
+function setStatus(){
+  const el=$("#status");let wd,h;
+  try{
+    const p=new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Almaty",weekday:"short",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date());
+    const g=t=>p.find(x=>x.type===t).value;
+    wd={Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6,Sun:0}[g("weekday")];h=(+g("hour"))%24+(+g("minute"))/60;
+  }catch(e){el.style.display="none";return}
+  const open=CLINIC.days.includes(wd)&&h>=CLINIC.open&&h<CLINIC.close;
+  el.className=open?"open":"closed";
+  el.textContent=open?T[LANG].st_open.replace("{t}",CLINIC.close+":00"):T[LANG].st_closed;
+}
+function applyLang(l){
+  LANG=l;document.documentElement.lang=l;
+  $$("[data-i]").forEach(e=>e.textContent=T[l][e.dataset.i]);
+  $$("[data-al]").forEach(e=>e.setAttribute("aria-label",T[l][e.dataset.al]));
+  document.title=T[l].title;$("meta[name=description]").content=T[l].desc;
+  $$("[data-lang]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===l));
+  setStatus();
+  try{localStorage.setItem("lang",l)}catch(e){}
+}
+function setLang(l,smooth){
+  if(l===LANG&&smooth)return;
+  if(!smooth||reduce){applyLang(l);return}
+  const m=$("main");m.classList.add("swap");   /* плавная смена языка */
+  setTimeout(()=>{applyLang(l);m.classList.remove("swap")},150);
+}
+$$("[data-tel]").forEach(a=>a.href="tel:+"+CLINIC.phone);
+$$("[data-tel-text]").forEach(a=>a.textContent=CLINIC.phoneShow);
+$$("[data-wa]").forEach(a=>a.href="https://wa.me/"+CLINIC.phone);
+$$("[data-gis]").forEach(a=>a.href=CLINIC.gis);
+$$("[data-lang]").forEach(b=>b.onclick=()=>setLang(b.dataset.lang,true));
+
+const sz=$("#size");
+function setBig(v){document.documentElement.classList.toggle("big",v);sz.setAttribute("aria-pressed",v);try{localStorage.setItem("big",v?1:0)}catch(e){}}
+sz.onclick=()=>setBig(sz.getAttribute("aria-pressed")!=="true");
+
+/* справочник: плавное раскрытие, открыт один */
+$$(".q").forEach(b=>b.onclick=()=>{
+  const qa=b.parentElement,willOpen=!qa.classList.contains("open");
+  $$(".qa.open").forEach(o=>{o.classList.remove("open");o.querySelector(".q").setAttribute("aria-expanded",false)});
+  if(willOpen){qa.classList.add("open");b.setAttribute("aria-expanded",true)}
+});
+
+/* карусель отзывов */
+const revs=$("#revs"),prev=$("#prev"),next=$("#next");
+function arrows(){
+  const can=revs.scrollWidth>revs.clientWidth+4;
+  prev.hidden=next.hidden=!can;
+  prev.disabled=revs.scrollLeft<4;
+  next.disabled=revs.scrollLeft+revs.clientWidth>=revs.scrollWidth-4;
+}
+const step=()=>revs.querySelector(".rev").getBoundingClientRect().width+16;
+prev.onclick=()=>revs.scrollBy({left:-step(),behavior:"smooth"});
+next.onclick=()=>revs.scrollBy({left:step(),behavior:"smooth"});
+revs.addEventListener("scroll",arrows,{passive:true});addEventListener("resize",arrows);
+
+/* увеличение фото документов по нажатию */
+const lb=$("#lb");
+document.addEventListener("click",e=>{
+  const img=e.target.closest(".doc img");
+  if(img){lb.querySelector("img").src=img.src;lb.classList.add("on")}
+  else if(e.target.closest("#lb"))lb.classList.remove("on");
+});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")lb.classList.remove("on")});
+
+/* шапка уменьшается при прокрутке */
+const hd=$("header");
+addEventListener("scroll",()=>hd.classList.toggle("scrolled",scrollY>12),{passive:true});
+
+/* подсветка текущего раздела в меню */
+if("IntersectionObserver" in window){
+  const links=[...$$("nav a")];
+  const spy=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting)links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id));
+  }),{rootMargin:"-45% 0px -50% 0px"});
+  links.forEach(a=>{const s=$(a.getAttribute("href"));if(s)spy.observe(s)});
+  /* плавная кнопка «Записаться» исчезает у контактов */
+  new IntersectionObserver(e=>$("#fabBtn").classList.toggle("gone",e[0].isIntersecting),{threshold:.25}).observe($("#contacts"));
+}
+
+/* появление блоков при прокрутке */
+$$("[data-stagger]").forEach(box=>[...box.children].forEach((c,i)=>{c.classList.add("stg");c.style.setProperty("--n",i)}));
+if(reduce||!("IntersectionObserver" in window)){$$(".rv").forEach(e=>e.classList.add("in"))}
+else{
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+  $$(".rv").forEach(e=>io.observe(e));
+}
+
+let l="ru",b=false;
+try{l=localStorage.getItem("lang")||"ru";b=localStorage.getItem("big")==="1"}catch(e){}
+applyLang(T[l]?l:"ru");setBig(b);arrows();
+</script>
+</body>
+</html>
